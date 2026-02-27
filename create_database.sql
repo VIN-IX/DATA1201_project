@@ -10,12 +10,12 @@ USE FinalProject;
 -- Enum tables
 CREATE TABLE SpaceType (
 	TypeID int IDENTITY(1, 1) NOT NULL,
-	Name varchar(15) NOT NULL,
+	Name varchar(25) NOT NULL,
 
 	PRIMARY KEY (TypeID)
 );
 
-CREATE TABLE UserType (
+CREATE TABLE UserRole (
 	TypeID int IDENTITY(1, 1) NOT NULL,
 	Name varchar(10) NOT NULL,
 
@@ -23,8 +23,8 @@ CREATE TABLE UserType (
 );
 
 -- Setup enums
-INSERT INTO SpaceType (Name) VALUES ('Meeting'), ('PrivateOffice'), ('OpenArea');
-INSERT INTO UserType (Name) VALUES ('Coworker'), ('Owner');
+INSERT INTO SpaceType (Name) VALUES ('Office'), ('Meeting Room'), ('Study Space'), ('Desk'), ('Private Office Room');
+INSERT INTO UserRole (Name) VALUES ('Owner'), ('Coworker');
 
 -- Data tables
 CREATE TABLE [Location] (
@@ -66,6 +66,7 @@ CREATE TABLE [User] (
 	PRIMARY KEY (UserID)
 );
 
+-- Foreign keys
 ALTER TABLE [Location] ADD CONSTRAINT [FK_Location_Owner] FOREIGN KEY (Owner) REFERENCES [User](UserID);
 
 ALTER TABLE [Workspace] ADD CONSTRAINT [FK_Workspace_LocationID] FOREIGN KEY (LocationID) REFERENCES [Location](LocationID);
