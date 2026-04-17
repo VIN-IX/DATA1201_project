@@ -64,11 +64,11 @@ CREATE TABLE [Workspace] (
 CREATE TABLE [User] (
 	UserID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
-	LastName varchar(50) NOT NULL,
+	LastName varchar(50),
 	PhoneNumber varchar(20),
 	Email varchar(50),
-	Role int NOT NULL,
-	WorkspaceID int,
+	Password varchar(50),
+	UserRole int NOT NULL,
 
 	PRIMARY KEY (UserID)
 );
@@ -82,4 +82,4 @@ ALTER TABLE [Workspace] ADD CONSTRAINT [FK_Workspace_Type] FOREIGN KEY (Type) RE
 
 ALTER TABLE [User] ADD CONSTRAINT [FK_User_Role] FOREIGN KEY (Role) REFERENCES [UserRole](TypeID);
 --ALTER TABLE [User] ADD CONSTRAINT [FK_User_LocationID] FOREIGN KEY (LocationID) REFERENCES [Location](LocationID);
-ALTER TABLE [User] ADD CONSTRAINT [FK_User_WorkspaceID] FOREIGN KEY (WorksapceID) REFERENCES [Workspace](WorkspaceID);
+--ALTER TABLE [User] ADD CONSTRAINT [FK_User_WorkspaceID] FOREIGN KEY (WorksapceID) REFERENCES [Workspace](WorkspaceID);

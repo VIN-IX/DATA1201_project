@@ -21,10 +21,10 @@ INSERT INTO [Workspace](LocationID, Name, Type, Seating, LeaseStart, LeaseEnd, D
 	(4, 'Open Meeting Room', 2, 14, NULL, NULL, 40.00)
 ;
 
-INSERT INTO [User](FirstName, LastName, PhoneNumber, Email, Role, WorkspaceID) VALUES
-	('Jim', 'Jim', '123-456-7890', 'jim@fakeemail.ca', 1, 1),
-	('Bob', NULL, '098-765-4321', 'bob@fakeemail.ca', 2, 1),
-	('Stanley', 'Furgeson', 111-111-1111, NULL, 1, NULL),
-	('Joe', 'Schmoe', NULL, 'joe@fakeemail.ca', 2, 2),
-	('Jane', 'Doe', '890-115-7809', NULL, 2, 2)
+INSERT INTO [User](FirstName, LastName, PhoneNumber, Email, UserRole) VALUES
+	('Jim', 'Jim', '123-456-7890', 'jim@fakeemail.ca', 1),
+	('Bob', NULL, '098-765-4321', 'bob@fakeemail.ca', 2),
+	('Stanley', 'Furgeson', '111-111-1111', NULL, 1),
+	('Joe', 'Schmoe', NULL, 'joe@fakeemail.ca', 2),
+	('Jane', 'Doe', '890-115-7809', NULL, 2)
 ;
