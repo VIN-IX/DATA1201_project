@@ -1,11 +1,18 @@
 USE master;
+GO
 
 IF DB_ID('FinalProject') IS NOT NULL
-	ALTER DATABASE [FinalProject] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-	DROP DATABASE [FinalProject];
+BEGIN
+    ALTER DATABASE [FinalProject] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE [FinalProject];
+END;
+GO
 
 CREATE DATABASE FinalProject;
+GO
+
 USE FinalProject;
+GO
 
 -- Enum tables
 CREATE TABLE SpaceType (
@@ -32,9 +39,8 @@ CREATE TABLE Province (
 -- Data tables
 CREATE TABLE [Location] (
 	LocationID int IDENTITY(1, 1) NOT NULL,
-	UserID int,
 	Name varchar(50),
-	Area_m2 Numeric,
+	Area_m2 DECIMAL(10,2),
 	Parking Bit,
 	PublicTransport Bit,
 	Owner int,
@@ -56,7 +62,7 @@ CREATE TABLE [Workspace] (
 	Seating int NOT NULL,
 	LeaseStart DATE,
 	LeaseEnd DATE,
-	DailyPrice Numeric,
+	DailyPrice DECIMAL(10,2),
 
 	PRIMARY KEY (WorkspaceID)
 );
@@ -80,6 +86,8 @@ ALTER TABLE [Location] ADD CONSTRAINT [FK_Location_Province] FOREIGN KEY (Provin
 ALTER TABLE [Workspace] ADD CONSTRAINT [FK_Workspace_LocationID] FOREIGN KEY (LocationID) REFERENCES [Location](LocationID);
 ALTER TABLE [Workspace] ADD CONSTRAINT [FK_Workspace_Type] FOREIGN KEY (Type) REFERENCES [SpaceType](TypeID);
 
-ALTER TABLE [User] ADD CONSTRAINT [FK_User_Role] FOREIGN KEY (Role) REFERENCES [UserRole](TypeID);
+ALTER TABLE [User]
+ADD CONSTRAINT [FK_User_Role]
+FOREIGN KEY (UserRole) REFERENCES [UserRole](TypeID);
 --ALTER TABLE [User] ADD CONSTRAINT [FK_User_LocationID] FOREIGN KEY (LocationID) REFERENCES [Location](LocationID);
 --ALTER TABLE [User] ADD CONSTRAINT [FK_User_WorkspaceID] FOREIGN KEY (WorksapceID) REFERENCES [Workspace](WorkspaceID);
