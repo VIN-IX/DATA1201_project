@@ -13,11 +13,12 @@ VALUES
 	('Loft', 'Montreal', 'Rue saint', 11, 'H3B1A7', 'Ville-Marie', 1600, 0, 1)
 ;
 
+
 INSERT INTO [Workspace](LocationID, Name, Type, Seating, LeaseStart, LeaseEnd, DailyPrice) VALUES
-	(1, 'Cozy Office', 1, 4, '1/15/26', '2/28/26', 35.00),
-	(1, 'Small Meeting Room', 2, 8, '1/10/26', '3/1/26', NULL),
+	(1, 'Cozy Office', 1, 4, '2026-01-15', '2026-02-28', 35.00),
+	(1, 'Small Meeting Room', 2, 8, '2026-01-10', '2026-03-01', NULL),
 	(2, 'Large Office', 1, 10, NULL, NULL, 50.00),
-	(3, 'Cubicle Office Space', 1, 10, '03/10/26', NULL, 50.00),
+	(3, 'Cubicle Office Space', 1, 10, '2026-03-10', NULL, 50.00),
 	(4, 'Open Meeting Room', 2, 14, NULL, NULL, 40.00)
 ;
 
